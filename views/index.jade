@@ -1,5 +1,26 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .innerBox
+    #logo
+      svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', height='100px', viewbox='0 0 240 381', enable-background='new 0 0 240 381', xml:space='preserve')
+        g(sketch:type='MSPage')
+          path(fill='#ffca3a', d='M104,380.744C46.626,378.897,2.068,367.253,0.07,353l0,0H0v-89h0.049c0.124-4.484,0.483-9.159,1.055-14l0,0H104V380.744z M136,380.744c57.373-1.847,101.932-13.491,103.93-27.744H240v-82.104c0.001-0.248,0.001-0.497,0-0.746V264h-0.181l0,0c-0.24-4.463-0.716-9.139-1.403-14H136V380.744z M104-0.107C77.523,46.605,26.138,142.916,7.219,218l0,0H104V-0.107z M136,0.051C161.73,47.05,211.902,143.842,231.689,218H136V0.051z')
+
+    h1
+      | Sinterklaas
+      span  lootjes
+
+    form#email_form(role='form')
+      .form-group.input
+        h5 Deelnemer 1:
+        input#name0.form-control(type='text', name="name0", placeholder="Naam deelnemer")
+        input#email0.form-control(type='email', name="email0", placeholder='E-mail deelnemer')
+
+      .form-group#add
+        button.btn.btn-default
+          span(class="glyphicon glyphicon-plus")
+          |  Nieuwe deelnemer
+
+      .form-group#submit
+        input#submit(type="submit", value="Verstuur lootjes", class="btn btn-warning")
