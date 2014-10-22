@@ -11,14 +11,14 @@ block content
       | Sinterklaas
       span  lootjes
 
-    form#email_form(role='form')
+    form#email_form(action="/" role='form' method="POST")
       .form-group.input
         h5 Deelnemer 1:
-        input#name0.form-control(type='text', name="name0", placeholder="Naam deelnemer")
-        input#email0.form-control(type='email', name="email0", placeholder='E-mail deelnemer')
+        input#name0.form-control(type='text', name="participants[0]['name']", placeholder="Naam deelnemer")
+        input#email0.form-control(type='email', name="participants[0]['email']", placeholder='E-mail deelnemer')
 
       .form-group#add
-        button.btn.btn-default
+        a.btn.btn-default#add_button(href="#")
           span(class="glyphicon glyphicon-plus")
           |  Nieuwe deelnemer
 
