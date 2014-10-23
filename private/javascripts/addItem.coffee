@@ -7,7 +7,7 @@ $ ->
     getClass = (currNum, type) ->
       "participants[" + currNum + "][" + type + "]";
 
-    html = $('<div class="form-group input newItem"><h5>Deelnemer ' + (currNum + 1) + ':</h5><input id="'+ getClass(currNum, "name") + '" type="text" name="'+ getClass(currNum, "name") + '" placeholder="Naam deelnemer" class="form-control"/><input id="'+ getClass(currNum, "email") + '" type="email" name="'+ getClass(currNum, "email") + '" placeholder="E-mail deelnemer" class="form-control"/></div>')
+    html = $('<div class="form-group input newItem"><h5>Deelnemer ' + (currNum + 1) + ':</h5><input id="' + getClass(currNum, "name") + '" type="text" name="' + getClass(currNum, "name") + '" placeholder="Naam deelnemer" class="form-control"/><input id="' + getClass(currNum, "email") + '" type="email" name="' + getClass(currNum, "email") + '" placeholder="E-mail deelnemer" class="form-control"/></div>')
     $(".form-group#add").last().before(html)
     # scroll down
     $('html, body').stop().animate({scrollTop:$(document).height()}, 1800);
