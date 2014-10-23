@@ -62,7 +62,11 @@ router.route('/').post(function(req, res) {
     listConnect.push({"participants": participant, "ticket": ticket})
   });
 
-  res.send(listConnect)
+  res.send({
+    "response": "success",
+    "message": "Successful called the server"
+  });
+
 });
 
 module.exports = router;
