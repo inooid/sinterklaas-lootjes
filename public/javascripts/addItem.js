@@ -64,7 +64,14 @@ $(function() {
             return $("input[type='submit']").attr("disabled", false);
           } else {
             $('.md-content #alert').addClass('error').html("Oops!");
-            return $('.md-content div #message').html(data.message);
+            $('.md-content div #message').html(data.message);
+            $('.md-content div .icon').html(errorIcon);
+            $('.md-trigger').click();
+            $('.errorIcon').addClass("animated bounceIn");
+            setTimeout((function() {
+              return $('.errorIcon').removeClass("animated bounceIn");
+            }), 500);
+            return $("input[type='submit']").attr("disabled", false);
           }
         },
         error: function(jqXHR, textStatus, errorThrown) {

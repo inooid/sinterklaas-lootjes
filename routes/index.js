@@ -1,13 +1,13 @@
 var express = require('express');
-var router = express.Router();
-var nodemailer = require('nodemailer');
-var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
+    router = express.Router();
+    nodemailer = require('nodemailer');
+    transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
         user: 'XXX', // Enter your Gmail account here (example@gmail.com)
         pass: 'XXX'                      // Enter your Gmail account password here
-    }
-});
+      }
+    });
 
 function shuffle(array) {
   var m = array.length, t, i;
@@ -80,10 +80,18 @@ router.route('/').post(function(req, res) {
       console.log(err);
       console.log(info);
       if (err) {
-        res.send({
-          "response": "error",
-          "message": "Helaas kon de mail niet verstuurd worden. Probeer het later nogmaals."
-        });
+        if (err.responseCode == 535) {
+          res.send({
+            "response": "error",
+            "message": "No username and password configured for nodemailer."
+          });
+        }
+        else {
+          res.send({
+            "response": "error",
+            "message": "Helaas kon de mail niet verstuurd worden. Probeer het later nogmaals."
+          });
+        }
       } else {
         res.send({
           "response": "success",
@@ -91,10 +99,7 @@ router.route('/').post(function(req, res) {
         });
       }
     });
-
-    // listConnect.push({"participants": participant, "ticket": ticket})
   });
-
 });
 
 module.exports = router;

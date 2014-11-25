@@ -18,7 +18,7 @@ $ ->
   </svg>
   </div>';
 
-  participantsCount = 0;
+  participantsCount = 0
 
   newItem = (number) ->
     currNum = number++
@@ -80,7 +80,7 @@ $ ->
         </div>
       </div>';
 
-      $("body").prepend(loading);
+      $("body").prepend(loading)
 
       $.ajax
         url: formURL
@@ -103,6 +103,13 @@ $ ->
           else
             $('.md-content #alert').addClass('error').html("Oops!")
             $('.md-content div #message').html(data.message)
+            $('.md-content div .icon').html(errorIcon)
+            $('.md-trigger').click()
+            $('.errorIcon').addClass("animated bounceIn")
+            setTimeout (->
+              $('.errorIcon').removeClass("animated bounceIn")
+            ), 500
+            $("input[type='submit']").attr("disabled", false)
 
         #data: return data from server
         error: (jqXHR, textStatus, errorThrown) ->
