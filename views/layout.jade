@@ -4,11 +4,25 @@ html
     title Sinterklaas Lootjes managen
     link(href='//fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
     link(href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='/stylesheets/modal.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    div#success.md-modal.md-effect-10
+      div.md-content
+        h3#alert Je bent klaar!
+        div
+          div.icon
+          p#message
+          button.md-close
+            span.glyphicon.glyphicon-remove
+    div.md-overlay
+
     .container
       block content
 
     script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js')
     script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+    script(src='javascripts/classie.js')
+    script(src='javascripts/modalEffects.js')
+    script(src='javascripts/progressButton.js')
     script(src='javascripts/addItem.js')
